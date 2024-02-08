@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Finder</title>
+    <script src="/index.js"></script>
+</head>
+<body>
+    <h1>Pokemon Search</h1>
+    <form action="/pokemon" method="GET">
+        <label for="pokemon">Enter a Pokemon:</label>
+        <input type="text" id="pokemon" name="q">
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    <div class="results">
+
+
+    </div>
+    <script>
+               let form = document.querySelector('form');
+        let q = document.querySelector('input[name="q"]');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            let url = "/pokemon/find/" + q.value;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear any previous results
+                    document.querySelector('.results').innerHTML = '';
+                    
+                    // Output new results
+                    data.forEach(pokemon => {
+                        let div = document.createElement('div');
+                        div.innerHTML = `
+                            <h2>${pokemon.name}</h2>
+                            <img src="${pokemon.img}" alt="${pokemon.name}">
+                        `;
+                        document.querySelector('.results').appendChild(div);
+                    });
+                });
+        });
+       
+
+    </script>
+
+
+    
+</body>
+</html>
