@@ -9,7 +9,7 @@
 <body>
     <h1>Pokemon Search</h1>
     <form action="/pokemon" method="GET">
-        <label for="pokemon">Enter a Pokemon:</label>
+        <label for="pokemon">Enter a Pokemon Type:</label>
         <input type="text" id="pokemon" name="q">
         <label for="type">Type:</label>
         <input type="radio" name="type" value="Grass">
@@ -24,6 +24,8 @@
     <script>
                let form = document.querySelector('form');
         let q = document.querySelector('input[name="q"]');
+        // const type = document.querySelector('input[name="type"]:checked').value;
+        // console.log(type)
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -46,7 +48,38 @@
                 });
         });
 
+        // form.addEventListener('submit', function(event) {
+        //     event.preventDefault();
+        //     let url = "/pokemon/find/" + q.value;
+        //     fetch(url)
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             // Clear any previous results
+        //             document.querySelector('.results').innerHTML = '';
+        //             // const type = document.querySelector('input[name="type"]:checked').value;
+                    
+        //             // Output new results
+        //             data.forEach(pokemon => {
+        //                 let div = document.createElement('div');
+        //                     div.innerHTML = `
+        //                         <h2>${pokemon.name}</h2>
+        //                         <img src="${pokemon.img}" alt="${pokemon.name}">
+        //                     `;
+        //                     document.querySelector('.results').appendChild(div);
 
+        //                 // if (pokemon.type !== type) {
+        //                 //     return;
+        //                 // } else {
+        //                 //     // let div = document.createElement('div');
+        //                 //     div.innerHTML = `
+        //                 //         <h2>${pokemon.name}</h2>
+        //                 //         <img src="${pokemon.img}" alt="${pokemon.name}">
+        //                 //     `;
+        //                 //     document.querySelector('.results').appendChild(div);
+        //                 // }
+        //             });
+        //         });
+        // });
        
 
     </script>
