@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Lister</title>
-    <link href="./style.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
 </head>
 
 <body>
     <h1>Rick and Morty Characters</h1>
-    <main>
+    <main class="characters-container">
         {% for character in characters %}
         <a class='character-profile' href="/character/{{ character.id }}">
-            <h2>{{ character.name }}</h2>
-            <img src="{{ character.image }}" alt="{{ character.name }}" title="{{ character.name }}">
+        <img src="{{ character.image }}" alt="{{ character.name }}" title="{{ character.name }}">
+            <h4>{{ character.name }}</h4>
         </a>
         {% endfor %}
     </main>

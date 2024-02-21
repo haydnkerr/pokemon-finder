@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Finder</title>
     <script src="/index.js"></script>
+    <link href="./style.css" rel="stylesheet">
 </head>
+
 <body>
     <h1>Pokemon Search</h1>
-    <form action="/pokemon" method="GET">
+    <form class="poke-search" action="/pokemon" method="GET">
         <label for="pokemon">Enter a Pokemon Type:</label>
         <input type="text" id="pokemon" name="q">
         <label for="type">Type:</label>
@@ -16,18 +19,31 @@
         <input type="radio" name="type" value="Fire">
         <button type="submit">Search</button>
     </form>
+    <h2>Rick and Morty Characters</h2>
+    <form class="rick-search" action="/characters" method="GET">
+        <button type="submit">Search</button>
+
+    </form>
     <hr>
     <div class="results">
 
 
     </div>
     <script>
-               let form = document.querySelector('form');
+        let form = document.querySelector('.poke-search');
+        let rickSearch = document.querySelector('.rick-search')
         let q = document.querySelector('input[name="q"]');
         // const type = document.querySelector('input[name="type"]:checked').value;
         // console.log(type)
 
-        form.addEventListener('submit', function(event) {
+        rickSearch.addEventListener('submit', function (event) {
+            event.preventDefault();
+            window.location.href = "/characters";
+
+
+        })
+
+        form.addEventListener('submit', function (event) {
             event.preventDefault();
             let url = "/pokemon/find/" + q.value;
             fetch(url)
@@ -35,7 +51,7 @@
                 .then(data => {
                     // Clear any previous results
                     document.querySelector('.results').innerHTML = '';
-                    
+
                     // Output new results
                     data.forEach(pokemon => {
                         let div = document.createElement('div');
@@ -49,11 +65,12 @@
         });
 
 
-       
+
 
     </script>
 
 
-    
+
 </body>
+
 </html>

@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 25px;
+}
+
+.rick-search button {
+    padding: 8px 20px;
+    color: white;
+    border: none;
+    background: rgb(10, 209, 0);
+}
+
+.characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.358);
+    flex: 1;
+    max-width: 300px;
+    font-family: sans-serif;
+    gap: 0.5rem
+}
+
+.character-profile h4 {
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.character-profile img {
+    width: 175px;
+    height: 175px;
+}

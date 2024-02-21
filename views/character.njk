@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Lister</title>
-    <link href="./style.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
 </head>
 
 <body>
     <h1>Rick and Morty Characters</h1>
-    <main>
-            <h2>{{ character[num].name }}</h2>
+    <main class="characters-container">
+        <div class="character-profile">
             <img src="{{ character[num].image }}" alt="{{ character[num].name }}" title="{{ character.name }}">
+            <h2>{{ character[num].name }}</h2>
+                <p><strong>Status: </strong>{{ character[num].status}}</p>
+                <p><strong>Species: </strong>{{ character[num].species}}</p>
+                <p><strong>Origin: </strong>{{ character[num].origin.name }}</p>
+                <p><strong>Species: </strong>{{ character[num].species}}</p>
+                <p><strong>Episodes: </strong>{{ character[num].episode.length }}</p>
+        </div>
+
     </main>
 </body>
 </html>
